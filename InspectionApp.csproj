@@ -1,0 +1,77 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ConsumeVehicleAPI\**" />
+    <Compile Remove="ConsumeWebAPI\**" />
+    <Compile Remove="VehicleCrud\**" />
+    <Content Remove="ConsumeVehicleAPI\**" />
+    <Content Remove="ConsumeWebAPI\**" />
+    <Content Remove="VehicleCrud\**" />
+    <EmbeddedResource Remove="ConsumeVehicleAPI\**" />
+    <EmbeddedResource Remove="ConsumeWebAPI\**" />
+    <EmbeddedResource Remove="VehicleCrud\**" />
+    <None Remove="ConsumeVehicleAPI\**" />
+    <None Remove="ConsumeWebAPI\**" />
+    <None Remove="VehicleCrud\**" />
+    <TypeScriptCompile Remove="ConsumeVehicleAPI\e2e\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ConsumeVehicleAPI\angular.json" />
+    <Content Include="ConsumeVehicleAPI\package-lock.json" />
+    <Content Include="ConsumeVehicleAPI\package.json" />
+    <Content Include="ConsumeVehicleAPI\src\app\app.component.html" />
+    <Content Include="ConsumeVehicleAPI\src\app\vehicle\vehicle.component.html" />
+    <Content Include="ConsumeVehicleAPI\src\favicon.ico" />
+    <Content Include="ConsumeVehicleAPI\src\index.html" />
+    <Content Include="ConsumeVehicleAPI\tsconfig.app.json" />
+    <Content Include="ConsumeVehicleAPI\tsconfig.json" />
+    <Content Include="ConsumeVehicleAPI\tsconfig.spec.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="ConsumeVehicleAPI\.browserslistrc" />
+    <None Include="ConsumeVehicleAPI\.editorconfig" />
+    <None Include="ConsumeVehicleAPI\.gitignore" />
+    <None Include="ConsumeVehicleAPI\karma.conf.js" />
+    <None Include="ConsumeVehicleAPI\README.md" />
+    <None Include="ConsumeVehicleAPI\src\app\app.component.sass" />
+    <None Include="ConsumeVehicleAPI\src\assets\.gitkeep" />
+    <None Include="ConsumeVehicleAPI\src\styles.sass" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AngularJS.Core" Version="1.8.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.2.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="Node.js" Version="5.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ConsumeVehicleAPI\src\app\app-routing.module.ts" />
+    <TypeScriptCompile Include="ConsumeVehicleAPI\src\app\app.component.spec.ts" />
+    <TypeScriptCompile Include="ConsumeVehicleAPI\src\app\app.component.ts" />
+    <TypeScriptCompile Include="ConsumeVehicleAPI\src\app\app.module.ts" />
+    <TypeScriptCompile Include="ConsumeVehicleAPI\src\environments\environment.prod.ts" />
+    <TypeScriptCompile Include="ConsumeVehicleAPI\src\environments\environment.ts" />
+    <TypeScriptCompile Include="ConsumeVehicleAPI\src\main.ts" />
+    <TypeScriptCompile Include="ConsumeVehicleAPI\src\polyfills.ts" />
+    <TypeScriptCompile Include="ConsumeVehicleAPI\src\test.ts" />
+  </ItemGroup>
+
+</Project>
