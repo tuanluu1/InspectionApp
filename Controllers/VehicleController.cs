@@ -19,9 +19,14 @@ namespace InspectionApp.Controllers
         {
             _context = context;
         }
-
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<VehicleInspection>>> GetAllVehicleInspection()
+        {
+            return await _context.VehicleInspections.ToListAsync();
+        }
         // GET: api/Vehicle
         [HttpGet]
+        [Route("GetVehicleInspections")]
         public async Task<ActionResult<IEnumerable<VehicleInspection>>> GetVehicleInspections()
         {
             return await _context.VehicleInspections.ToListAsync();
@@ -87,6 +92,7 @@ namespace InspectionApp.Controllers
 
         // DELETE: api/Vehicle/5
         [HttpDelete("{id}")]
+        [Route("DeleteVehicleInspection")]
         public async Task<IActionResult> DeleteVehicleInspection(int id)
         {
             var vehicleInspection = await _context.VehicleInspections.FindAsync(id);

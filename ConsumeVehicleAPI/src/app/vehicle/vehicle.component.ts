@@ -12,10 +12,17 @@ import { Vehicle } from '../vehicle';
 export class VehicleComponent implements OnInit {
   dataSaved = false;
   vehicleForm: any;
-  allVehicles!: Observable<Vehicle[]>;
+  allVehicles: Observable<Vehicle[]>;
   vehicleIdUpdate = null;
   massage: any;
-  constructor(private formbulider: FormBuilder, private vehicleService: VehicleService) { }
+  constructor(private formbulider: FormBuilder, private vehicleService: VehicleService) {
+    
+    this.allVehicles = this.vehicleService.GetVehicleInspections();
+    this.massage = "";
+    //this.vehicleService.GetVehicleInspections().subscribe((vehicles)=> {
+    //  this.vehicles = vehicles
+    //});
+  }
 
   ngOnInit(): void {
     this.vehicleForm = this.formbulider.group({
