@@ -79,7 +79,7 @@ export class VehicleComponent implements OnInit {
       });
     }
   }
-  deleteEmployee(id: bigint) {
+  deleteVehicle(id: bigint) {
     if (confirm("Are you sure you want to delete this ?")) {
       this.vehicleService.deleteVehicle(id).subscribe(() => {
         this.dataSaved = true;

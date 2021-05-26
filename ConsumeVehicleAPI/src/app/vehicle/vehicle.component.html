@@ -1,70 +1,69 @@
 <div class="container">
-
   <mat-card>
     <mat-toolbar color="accent">
       <div align="center" style="color:white;text-align: right;">
         Vehicle using Web api and Sql Database
       </div>
     </mat-toolbar>
-    <br><br>
+    <br /><br />
     <mat-card-content>
-      <form [formGroup]="VehicleForm" (ngSubmit)="onFormSubmit(VehicleForm.value)">
+      <!---->
+      <form [formGroup]="vehicleForm" (ngSubmit)="onFormSubmit()">
         <table>
           <tr>
             <td class="tbl1">
               <mat-form-field class="demo-full-width">
-                <input formControlName="VehicleVIN" matTooltip="Enter Vehicle VIN" matInput placeholder="Vehicle VIN">
-              </mat-form-field>
+                <input formControlName="VehicleVIN" matInput placeholder="Vehicle VIN">
+                </mat-form-field>
               <mat-error>
-                <span *ngIf="!VehicleForm.get('VIN').value && VehicleForm.get('VIN').touched"></span>
+                <span *ngIf="!vehicleForm.get('VIN').value && vehicleForm.get('VIN').touched"></span>
               </mat-error>
             </td>
             <td class="tbl1">
+
               <mat-form-field class="demo-full-width">
-                <input matInput [matDatepicker]="picker" matTooltip="Inspection Date" formControlName="InspectionDate" placeholder="Choose Date Of Inspection">
+                <input matInput [matDatepicker]="picker" matTooltip="Enter Inspection Date" formControlName="Inspection_Date" placeholder="Choose Inspection Date ">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
               <mat-error>
-                <span *ngIf="!VehicleForm.get('Inspection_Date').value && VehicleForm.get('Inspection_Date').touched"></span>
+                <span *ngIf="!vehicleForm.get('Inspection_Date').value && vehicleForm.get('Inspection_Date').touched"></span>
               </mat-error>
             </td>
             <td class="tbl1">
               <mat-form-field class="demo-full-width">
                 <input formControlName="Inspector_Name" matTooltip="Enter Inspector Name" matInput placeholder="Inspector_Name">
-              </mat-form-field>
-              <mat-error>
-                <span *ngIf="!VehicleForm.get('Inspector_Name').value && VehicleForm.get('Inspector_Name').touched"></span>
-              </mat-error>
+                </mat-form-field>
+                <mat-error>
+                  <span *ngIf="!vehicleForm.get('Inspector_Name').value && vehicleForm.get('Inspector_Name').touched"></span>
+                </mat-error>
             </td>
           </tr>
           <tr>
             <td class="tbl1">
-              <span>Pass or Fail</span>
-              <br><br>
-              
-              <mat-radio-group matTooltip="Vehicle Pass or Fail" formControlName="PassFail">
-                <mat-radio-button value="0">Fail</mat-radio-button>
-                <mat-radio-button value="1">Pass</mat-radio-button>
+              <mat-radio-group matTooltip="Enter Pass or Fail" formControlName="Pass_Fail">
+                <mat-radio-button value="0">Pass</mat-radio-button>
+                <mat-radio-button value="1">Fail</mat-radio-button>
               </mat-radio-group>
+              <br /><br />
               <mat-error>
-                <span *ngIf="!VehicleForm.get('Pass_Fail').value && employeeForm.get('Pass_Fail').touched"></span>
+                <span *ngIf="!vehicleForm.get('Pass_Fail').value && vehicleForm.get('Pass_Fail').touched"></span>
               </mat-error>
             </td>
             <td class="tbl1">
               <mat-form-field class="demo-full-width">
                 <input matTooltip="Enter Inspection Location" formControlName="Inspection_Location" matInput placeholder="Inspection_Location">
-              </mat-form-field>
-              <mat-error>
-                <span *ngIf="!VehicleForm.get('Inspection_Location').value && VehicleForm.get('Inspection_Location').touched"></span>
-              </mat-error>
+                </mat-form-field>
+                <mat-error>
+                  <span *ngIf="!vehicleForm.get('Inspection_Location').value && vehicleForm.get('Inspection_Location').touched"></span>-->
+                </mat-error>
             </td>
-           
+
           </tr>
           <tr>
             <td></td>
             <td class="content-center">
-              <button type="submit" mat-raised-button color="accent" matTooltip="Click Submit Button" [disabled]="!VehicleForm.valid">Submit</button>
+              <button type="submit" mat-raised-button color="accent" matTooltip="Click Submit Button" [disabled]="!vehicleForm.valid">Submit</button>
               <button type="reset" mat-raised-button color="accent" matTooltip="Click Reset Button" (click)="resetForm()">Reset</button>
             </td>
             <td>
@@ -74,7 +73,7 @@
             </td>
           </tr>
         </table>
-        <br><br>
+        <br /><br />
         <table class="table">
           <tr ngclass="btn-primary">
             <th class="tbl2">VIN</th>
@@ -87,21 +86,23 @@
             <th class="tbl2">Edit</th>
             <th class="tbl2">Delete</th>
           </tr>
-          <tr *ngFor="let vehicle of vehicles | async">
-            <td class="tbl2">{{vehicle.VIN}}</td>
-            <td class="tbl2">{{vehicle.Vehicle_Maker  }}</td>
-            <td class="tbl2">{{vehicle.Vehicle_Year}}</td>
-            <td class="tbl2">{{vehicle.Vehicle_Model}}</td>
-            <td class="tbl2">{{vehicle.Inspection_Date| date}}</td>
-            <td class="tbl2">{{vehicle.Inspector_Name}}</td>
-            <td class="tbl2">{{vehicle.Inspection_Location}}</td>
-            <td class="tbl2">{{vehicle.Pass_Fail ==0? 'Fail' : 'Pass'}}</td>
-            <td class="tbl2">{{vehicle.Note}}</td>
+          <tr *ngFor="let vehicle of allVehicles | async">
+            <<td class="tbl2">{{vehicle.VIN}}</td>
+          <td class="tbl2">{{vehicle.Vehicle_Maker  }}</td>
+          <td class="tbl2">{{vehicle.Vehicle_Year}}</td>
+          <td class="tbl2">{{vehicle.Vehicle_Model}}</td>
+          <td class="tbl2">{{vehicle.Inspection_Date| date}}</td>
+          <td class="tbl2">{{vehicle.Inspector_Name}}</td>
+          <td class="tbl2">{{vehicle.Inspection_Location}}</td>
+          <td class="tbl2">{{vehicle.Pass_Fail}}</td>
+          <td class="tbl2">{{vehicle.Notes}}</td>
+          <td class="tbl2">
+            <!---->
+            <button type="button" class="btn btn-info" matTooltip="Click Edit Button" (click)="loadVehicleToEdit(vehicle.RowID)">Edit</button>
+            <</td>
             <td class="tbl2">
-              <button type="button" class="btn btn-info" matTooltip="Click Edit Button" (click)="loadVehicleToEdit(vehicle.Id)">Edit</button>
-            </td>
-            <td class="tbl2">
-              <button type="button" class="btn btn-danger" matTooltip="Click Delete Button" (click)="deleteVehicle(vehicle.Id)">Delete</button>
+              <!--"-->
+              <button type="button" class="btn btn-danger" matTooltip="Click Delete Button" (click)="deleteVehicle(vehicle.RowID)">Delete</button>
             </td>
           </tr>
 
