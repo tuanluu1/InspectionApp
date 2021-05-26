@@ -1,12 +1,6 @@
-<h1>Vehicle component</h1>
-<ul>
-  <li *ngFor="let vehicle of allVehicles | async">
-    {{vehicle.VIN}} ----- {{vehicle.VIN}}
-  </li>
-</ul>
 
 <div class="container">
-  <!-- <mat-card>-->
+   <mat-card>
   <mat-toolbar color="accent">
     <div align="center" style="color:white;text-align: right;">
       Vehicle using Web api and Sql Database
@@ -14,26 +8,27 @@
   </mat-toolbar>
   <br /><br />
 
-  <!-- <mat-card-content> -->
+   <mat-card-content> 
 
   <form [formGroup]="vehicleForm" (ngSubmit)="onFormSubmit()">
     <table>
       <tr>
         <td class="tbl1">
           <mat-form-field class="demo-full-width">
-            <input formControlName="VehicleVIN" matInput placeholder="Vehicle VIN">
+            <input formControlName="VIN" matInput placeholder="Vehicle VIN">
           </mat-form-field>
           <mat-error>
             <span *ngIf="!vehicleForm.get('VIN').value && vehicleForm.get('VIN').touched"></span>
           </mat-error>
         </td>
         <td class="tbl1">
-
+          
           <mat-form-field class="demo-full-width">
-            <input matInput [matDatepicker]="picker" matTooltip="Enter Inspection Date" formControlName="Inspection_Date" placeholder="Choose Inspection Date ">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
+           <!--[matDatepicker]="picker"-->
+  <input matInput matTooltip="Enter Inspection Date" formControlName="Inspection_Date" placeholder="Choose Inspection Date ">
+  <!--<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>-->
+         </mat-form-field>
           <mat-error>
             <span *ngIf="!vehicleForm.get('Inspection_Date').value && vehicleForm.get('Inspection_Date').touched"></span>
           </mat-error>
@@ -63,7 +58,7 @@
             <input matTooltip="Enter Inspection Location" formControlName="Inspection_Location" matInput placeholder="Inspection_Location">
           </mat-form-field>
           <mat-error>
-            <span *ngIf="!vehicleForm.get('Inspection_Location').value && vehicleForm.get('Inspection_Location').touched"></span>-->
+            <span *ngIf="!vehicleForm.get('Inspection_Location').value && vehicleForm.get('Inspection_Location').touched"></span>
           </mat-error>
         </td>
 
@@ -118,6 +113,6 @@
 
     </table>
   </form>
-  <!--</mat-card-content> -->
-  <!--</mat-card>-->
+  </mat-card-content> 
+  </mat-card>
 </div>  

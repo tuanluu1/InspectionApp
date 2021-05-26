@@ -27,11 +27,11 @@ namespace InspectionApp
             services.AddControllersWithViews();
             services.AddCors(options =>
             {
-                options.AddPolicy("CorsPolicy",
-                    builder => builder.AllowAnyOrigin()
+                options.AddPolicy("AllowAnyOrigin",
+                    builder => builder
+                    .AllowAnyOrigin()
                     .AllowAnyMethod()
-                    .AllowAnyHeader()
-                    .AllowCredentials());
+                    .AllowAnyHeader());
             });
 
             services.AddControllers();
@@ -52,7 +52,7 @@ namespace InspectionApp
                 app.UseExceptionHandler("/Home/Error");
             }
             app.UseStaticFiles();
-
+           // app.UseCors("CorsPolicy");
             app.UseRouting();
 
             app.UseAuthorization();
@@ -64,6 +64,8 @@ namespace InspectionApp
                     pattern: "{controller=VehicleInspections}/{action=Index}/{id?}");
                 endpoints.MapControllers();
             });
+
+            app.UseCors("AllowAnyOrigin");
         }
     }
 }
